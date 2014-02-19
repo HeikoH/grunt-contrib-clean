@@ -17,7 +17,7 @@ module.exports = function(grunt) {
       return false;
     }
 
-    grunt.log.write((options['no-write'] ? 'Not actually cleaning ' : 'Cleaning ') + filepath + '...');
+    grunt.verbose.write((options['no-write'] ? 'Not actually cleaning ' : 'Cleaning ') + filepath + '...');
 
     // Only delete cwd or outside cwd if --force enabled. Be careful, people!
     if (!options.force) {
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       if (!options['no-write']) {
         rimraf.sync(filepath);
       }
-      grunt.log.ok();
+      grunt.verbose.ok();
     } catch (e) {
       grunt.log.error();
       grunt.fail.warn('Unable to delete "' + filepath + '" file (' + e.message + ').', e);
